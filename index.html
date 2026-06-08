@@ -713,6 +713,15 @@
 
     <!-- Cursor personalizado -->
     <div class="custom-cursor"></div>
+    
+    <!-- Cursor personalizado -->
+    <audio id="musica" loop>
+    <source src="img/musica.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="musica" loop>
+    <source src="img/musica.mp3" type="audio/mpeg">
+    </audio>
 
     <!-- Partículas de fundo -->
     <div class="particles"></div>
@@ -724,6 +733,11 @@
         <header class="header">
             <h1>Para Meu Amorzinho <span class="girlfriend-name"></span></h1>
             <p>Eu amo demais você ❤️</p>
+            
+            <button class="surprise-btn" onclick="showSurprise()">
+            	✨ Aperta aqui pretinha! ✨
+            </button>
+
         </header>
 
         <main class="love-card">
@@ -737,10 +751,6 @@
 			Os caracteres estão acabando e não vou poder falar muito mais, mas eu sei que você sabe: eu amo demais você. Eu vou ficar com você até depois do fim e não vou soltar sua mão por absolutamente nada.
 			Te amo mtmtmtmtmtmt mesmo ❤️</p>
             </div>
-
-            <button class="surprise-btn" onclick="showSurprise()">
-                ✨ Aperta aqui pretinha! ✨
-            </button>
 
             <div class="special-message" id="specialMessage">
                 <h3>💖 Do Fundo Do Meu Coração 💖</h3>
@@ -773,7 +783,7 @@
 
         <footer class="footer">
             <p>❤️</p>
-            <pVocê é o presente mais lindo que a vida me deu.</p>
+            <p>Você é o presente mais lindo que a vida me deu.</p>
             <p>Obrigado por ser minha companheira de sonhos, minha parceira de vida, minha melhor amiga e meu grande amor.</p>
             <p>Feliz Dia dos Namorados, meu amor! 💑</p>
         </footer>
@@ -824,6 +834,9 @@
 
         // Função principal da surpresa
         function showSurprise() {
+        	const musica = document.getElementById('musica');
+    		musica.play().catch(() => {});
+        
             const message = document.getElementById('specialMessage');
             message.classList.add('show');
             
