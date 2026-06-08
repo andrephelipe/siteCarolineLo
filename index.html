@@ -734,10 +734,18 @@
             <h1>Para Meu Amorzinho <span class="girlfriend-name"></span></h1>
             <p>Eu amo demais você ❤️</p>
             
+            <p style="color: #c0c0c0; margin-top: 10px; font-size: 1rem;">
+    		🎵 Pretinha, aumenta só um pouquinho o som antes de apertar o botão ❤️
+    		</p>
+    		
             <button class="surprise-btn" onclick="showSurprise()">
-            	✨ Aperta aqui pretinha! ✨
+            	✨ Aperta 2 vezes aqui pretinha! ✨
             </button>
-
+            <br/>
+            <button id="musicControl" class="surprise-btn" style="display:none; margin-top:15px;">
+    			⏸️ Pausar Música
+    		  </button>
+            
         </header>
 
         <main class="love-card">
@@ -836,6 +844,8 @@
         function showSurprise() {
         	const musica = document.getElementById('musica');
     		musica.play().catch(() => {});
+    		
+    		document.getElementById('musicControl').style.display = 'inline-block';
         
             const message = document.getElementById('specialMessage');
             message.classList.add('show');
@@ -866,7 +876,22 @@
                 setTimeout(() => createParticle(), i * 50);
             }
         }
+        
+        const musicControl = document.getElementById('musicControl');
+	   const musica = document.getElementById('musica');
 
+	musicControl.addEventListener('click', () => {
+
+	    if (musica.paused) {
+	        musica.play();
+	        musicControl.innerHTML = '⏸️ Pausar Música';
+	    } else {
+	        musica.pause();
+	        musicControl.innerHTML = '▶️ Tocar Música';
+	    }
+	
+	});
+	
         // NOVA FUNÇÃO: Animação épica "TE AMO"
         function createTeAmoAnimation() {
             // Criar múltiplas animações "TE AMO"
